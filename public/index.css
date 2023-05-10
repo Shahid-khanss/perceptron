@@ -1,0 +1,17 @@
+body{
+    background-color: rgb(199, 199, 199);
+    text-align: center;
+}
+
+#my-canvas{
+    background-color: white;
+    text-align: center;
+}
+
+button{
+    display: block;
+    width: 100px;
+    height: 50px;
+    font-size: 1.5em;
+    margin-inline: auto;
+}
