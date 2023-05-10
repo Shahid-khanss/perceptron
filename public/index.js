@@ -11,6 +11,5 @@ draw.line(0,30,500,400) // line(a,b,c,d) line from (a,b) ----> (c,d)
 
 function myfunc(){
     console.log("button clicked")
-    
 }
     
