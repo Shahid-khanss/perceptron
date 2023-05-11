@@ -15,15 +15,17 @@ export default class Draw {
 
     dots = function (a,b,no){
         
-        const dotLoc = []
+        const dotTotal = []
+        const dotDesired = []
         for(let i = 0 ; i<no;i++){
             this.ctx.beginPath();
             this.ctx.moveTo(0, 0)
             const x = Math.ceil(Math.random()*a)
             const y = Math.ceil(Math.random()*b)
-            dotLoc.push({x:x,y:y}) // array of points location.
+            dotTotal.push({x:x,y:y}) // array of points location.
             if(y<30+37*x/50){      // equation of line based on inequality.
                 this.ctx.fillStyle = "green"
+                dotDesired.push({x:x,y:y})
             }
             else{
                 this.ctx.fillStyle = "red"
@@ -33,7 +35,7 @@ export default class Draw {
             this.ctx.fill();
         }
         
-        console.log(dotLoc)
+        // console.log(dotDesired)
     }
      
 }
