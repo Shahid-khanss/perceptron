@@ -1,8 +1,9 @@
 export default class Draw {
     constructor(ctx){
         
-        this.ctx = ctx;
-       
+       this.ctx = ctx
+        this.dotTotal = []
+        this.desired = []
     }
 
     line = function (a,b,c,d) {
@@ -15,27 +16,33 @@ export default class Draw {
 
     dots = function (a,b,no){
         
-        const dotTotal = []
-        const dotDesired = []
+        this.dotTotal = []
+        this.desired = []
         for(let i = 0 ; i<no;i++){
-            this.ctx.beginPath();
-            this.ctx.moveTo(0, 0)
+            
             const x = Math.ceil(Math.random()*a)
             const y = Math.ceil(Math.random()*b)
-            dotTotal.push({x:x,y:y}) // array of points location.
+             // array of points location.
             if(y<30+37*x/50){      // equation of line based on inequality.
-                this.ctx.fillStyle = "green"
-                dotDesired.push({x:x,y:y})
+                // this.ctx.fillStyle = "green"
+                
+                this.dotTotal[i] = {x:x,y:y}
+                this.desired[i] = 1
             }
             else{
-                this.ctx.fillStyle = "red"
+                // this.ctx.fillStyle = "red"
+                this.dotTotal[i] = {x:x,y:y}
+                this.desired[i] = 0
             }
             
-            this.ctx.arc(x, y, 5, 0, 2 * Math.PI);
-            this.ctx.fill();
+            
         }
-        
-        // console.log(dotDesired)
+
+            
+        // for(let i=0;i<no;i++){
+        //     console.log(dotTotal[i])
+        //     console.log(desired[i])
+        // }
     }
      
 }

@@ -6,25 +6,25 @@ export default class Perceptron {
         this.bias = 1;
 
         // Computer Random weights
-        const weights = []
+        this.weights = []
 
         for(let i=0;i<no;i++){
-            weights[i] = Math.random()*2-1;
+            this.weights[i] = Math.random()*2-1;
            
         }
         
         // Activate Function
-        this.activate = function(inputs){
-            const sum = 0
+        this.activate = (inputs)=>{
+            let sum = 0
             for(let i = 0;i<no;i++){
-                sum += inputs[i]*weights[i]
+                sum += inputs[i]*this.weights[i]
             }
 
             if(sum){return 1} else { return 0}
         }
         
         // Train Function
-        this.train = function(inputs, desired) {
+        this.train = (inputs, desired)=> {
             inputs.push(this.bias);
             let guess = this.activate(inputs);
             let error = desired - guess;
