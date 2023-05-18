@@ -18,6 +18,9 @@ const ptron = new perceptron(2,.00001)
 for (let j = 0; j < 10000; j++) {
 for(let i=0;i<100;i++){
     // console.log(draw.dotTotal[i].x)
+    // console.log(draw.dotTotal[i].y)
+    // console.log(draw.desired[i])
+
     ptron.train([draw.dotTotal[i].x,draw.dotTotal[i].y],draw.desired[i])
 }
 }
@@ -26,8 +29,8 @@ for (let i = 0; i < 100; i++) {
     const x = draw.dotTotal[i].x;
     const y = draw.dotTotal[i].y;
     let guess = ptron.activate([x, y, ptron.bias]);
+    // const value = draw.desired[i]-guess
     console.log(guess)
-    
     ctx.beginPath()
     
     if(guess!=0){
@@ -43,3 +46,11 @@ for (let i = 0; i < 100; i++) {
     ctx.fill();
     
   }
+
+
+function pointer(event){
+    const x = event.clientX
+    const y = event.clientY
+    console.log({x:x,y:y})
+    return {x:x,y:y}
+}

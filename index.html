@@ -9,8 +9,23 @@
 </head>
 <body>
     
-    <canvas id="my-canvas" width="500px" height="500px"></canvas>
+    <canvas onmousemove="pointer(event)" id="my-canvas" width="500px" height="500px"></canvas>
+    <div id="pointer-value">Coordinates</div>
     <a href="http://localhost:3000/">Reset</a>
     <script src="index.js" type="module"></script>
+    <script>
+    function pointer(event){
+    const rect = document.getElementById("my-canvas").getBoundingClientRect()
+    const x = event.clientX-rect.left
+    const y = event.clientY-rect.top
+    // console.log({x:x,y:y})
+    // return {x:x,y:y}
+    document.getElementById('pointer-value').innerHTML = JSON.stringify({x:x,y:y})
+}
+
+
+
+
+    </script>
 </body>
 </html>

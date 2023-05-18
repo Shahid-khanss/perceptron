@@ -4,19 +4,19 @@ export default class Perceptron {
         // Set Initial Values
         this.learnc = learningRate;
         this.bias = 1;
-
+        this.no = no
         // Computer Random weights
         this.weights = []
 
-        for(let i=0;i<no;i++){
+        for(let i=0;i<this.no;i++){
             this.weights[i] = Math.random()*2-1;
            
         }
-        
+       } 
         // Activate Function
-        this.activate = (inputs)=>{
+        activate = (inputs)=>{
             let sum = 0
-            for(let i = 0;i<no;i++){
+            for(let i = 0;i<this.no;i++){
                 sum += inputs[i]*this.weights[i]
             }
 
@@ -24,7 +24,7 @@ export default class Perceptron {
         }
         
         // Train Function
-        this.train = (inputs, desired)=> {
+        train = (inputs, desired)=> {
             inputs.push(this.bias);
             let guess = this.activate(inputs);
             let error = desired - guess;
@@ -34,5 +34,5 @@ export default class Perceptron {
               }
             }
           }
-    }
+    
 }
