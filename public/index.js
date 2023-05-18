@@ -15,15 +15,15 @@ const draw = new Draw(ctx)
 const ptron = new perceptron(2,.00001)
 
 
-for (let j = 0; j < 10000; j++) {
+// for (let j = 0; j < 10000; j++) {
 for(let i=0;i<100;i++){
-    // console.log(draw.dotTotal[i].x)
-    // console.log(draw.dotTotal[i].y)
-    // console.log(draw.desired[i])
+    console.log(draw.dotTotal[i].x)
+    console.log(draw.dotTotal[i].y)
+    console.log(draw.desired[i])
 
     ptron.train([draw.dotTotal[i].x,draw.dotTotal[i].y],draw.desired[i])
 }
-}
+// }
 
 for (let i = 0; i < 100; i++) {
     const x = draw.dotTotal[i].x;
@@ -48,9 +48,3 @@ for (let i = 0; i < 100; i++) {
   }
 
 
-function pointer(event){
-    const x = event.clientX
-    const y = event.clientY
-    console.log({x:x,y:y})
-    return {x:x,y:y}
-}
