@@ -8,7 +8,7 @@ export default class Perceptron {
         // Computer Random weights
         this.weights = []
 
-        for(let i=0;i<this.no;i++){
+        for(let i=0;i<=this.no;i++){
             this.weights[i] = Math.random()*2-1;
            
         }
@@ -16,7 +16,7 @@ export default class Perceptron {
         // Activate Function
         activate = (inputs)=>{
             let sum = 0
-            for(let i = 0;i<this.no;i++){
+            for(let i = 0;i<inputs.length;i++){
                 sum += inputs[i]*this.weights[i]
             }
 
