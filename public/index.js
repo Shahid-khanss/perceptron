@@ -25,12 +25,16 @@ for(let i=0;i<100;i++){
 }
 }
 
+/* 
+    Actual drawing by perceptron by giving it the same input as the training data and guessing the answer.
+*/
+
 for (let i = 0; i < 100; i++) {
     const x = draw.dotTotal[i].x;
     const y = draw.dotTotal[i].y;
     let guess = ptron.activate([x, y, ptron.bias]);
     // const value = draw.desired[i]-guess
-    console.log(guess)
+    // console.log(guess)
     ctx.beginPath()
     
     if(guess!=0){

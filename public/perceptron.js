@@ -20,7 +20,7 @@ export default class Perceptron {
                 sum += inputs[i]*this.weights[i]
             }
 
-            if(sum){return 1} else { return 0}
+            if(sum>0){return 1} else { return 0}
         }
         
         // Train Function
