@@ -51,4 +51,30 @@ for (let i = 0; i < 100; i++) {
     
   }
 
+/* 
+  Adding points on canvas by clicking on it and checking the result of perceptron guess.
+*/
+
+    canvas.addEventListener('click',(event)=>{
+    const rect = document.getElementById("my-canvas").getBoundingClientRect()
+    const x = event.clientX-rect.left
+    const y = event.clientY-rect.top
+    let guess = ptron.activate([x, y, ptron.bias]);
+    // const value = draw.desired[i]-guess
+    // console.log(guess)
+    ctx.beginPath()
+    
+    if(guess!=0){
+           ctx.fillStyle = "green"
+            
+    }else{
+           
+            ctx.fillStyle = "red"
+           
+    }
+    ctx.moveTo(0,0)
+    ctx.arc(x, y, 5, 0, 2 * Math.PI);
+    ctx.fill();
+  })
+
 
